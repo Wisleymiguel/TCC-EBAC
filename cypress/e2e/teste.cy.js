@@ -64,5 +64,3 @@ it('CT-003: Deve bloquear adição de mais de 10 unidades', () => {
   cy.get('.dropdown-toggle > .mini-cart-items').should('contain', '11')
 })
 }) 
-
-
