@@ -6,6 +6,33 @@ Projeto de Testes Automatizados desenvolvido como Trabalho de Conclusão de Curs
 
 Automatizar testes E2E (End-to-End) para a loja virtual EBAC Shop, validando funcionalidades críticas do sistema de e-commerce.
 
+
+# 🧪 OBSERVAÇÕES SOBRE OS TESTES
+
+## ⚠️ Instabilidade do Ambiente
+
+Os testes automatizados estão **corretos e funcionais**, porém o 
+ambiente de testes (lojaebac.ebaconline.art.br) apresenta 
+**instabilidade intermitente**.
+
+### Sintomas Observados
+- Tempo de resposta inconsistente (2-15 segundos)
+- Elementos DOM carregam em momentos diferentes
+- Testes passam em execução isolada (`it.only`)
+- Testes falham aleatoriamente em sequência
+
+### Mitigações Implementadas
+✅ Timeouts aumentados (15 segundos)
+✅ Asserções `.should('be.visible')` em elementos críticos
+✅ Retry automático (2 tentativas no CI/CD)
+✅ Isolamento de testes com `beforeEach()`
+
+### Como Executar
+
+**Modo interativo (recomendado para desenvolvimento):**
+```bash
+
+
 ## 🛠️ Tecnologias Utilizadas
 
 - **Cypress 15.8.1** - Framework de testes E2E
