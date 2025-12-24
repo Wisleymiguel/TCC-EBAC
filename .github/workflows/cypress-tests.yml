@@ -2,7 +2,7 @@ name: Testes E2E Cypress
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, feature/US002-login ]
   pull_request:
     branches: [ main ]
 
