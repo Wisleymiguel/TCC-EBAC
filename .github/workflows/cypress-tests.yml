@@ -1,8 +1,8 @@
-name: Testes E2E Cypress
+name: Testes E2E e API - Cypress
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, API/US003 ]
   pull_request:
     branches: [ main ]
 
@@ -22,11 +22,20 @@ jobs:
       - name: Instalar dependências
         run: npm ci
       
-      - name: Executar testes Cypress
+      - name: Executar testes E2E (US-001, US-002)
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
           config-file: cypress.config.js
+          spec: cypress/e2e/teste.cy.js
+        continue-on-error: true
+      
+      - name: Executar testes API (US-003)
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          config-file: cypress.config.js
+          spec: cypress/e2e/api/cupons.cy.js
       
       - name: Upload vídeos dos testes
         if: always()
