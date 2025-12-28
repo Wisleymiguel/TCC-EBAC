@@ -40,6 +40,7 @@ it('CT-002: Deve exibir mensagem de erro com credenciais inválidas', () => {
 
   
 })
+
 it('CT-003: Deve bloquear conta após 3 tentativas incorretas de senha', () => {
   cy.get('.icon-user-unfollow').click()
   cy.get('#tbay-main-content').should('contain', 'Login')
@@ -52,7 +53,7 @@ it('CT-003: Deve bloquear conta após 3 tentativas incorretas de senha', () => {
   cy.get('.woocommerce-error').should('contain','Erro: O usuário')
   
   // segunda tentativa:
-  cy.get('[name="username"]').clear().type('wisley.1234')
+  cy.get('[name="username"]').type('wisley.1234')
   cy.get('.woocommerce-form > :nth-child(2) > [name="password"]').type('wisley.teste@teste.com.br')
   cy.get('[name="login"]').click()
   cy.get('.woocommerce-error').should('contain','Erro: O usuário')
